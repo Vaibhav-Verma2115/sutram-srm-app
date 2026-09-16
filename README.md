@@ -61,7 +61,7 @@ Measured on the bundled Telangana sample. Lower is better.
 
 - `test_scene_10m.tif` — 128², the SEN2SR example patch, with `test_ref_2p5m.tif` as its
   2.5 m Wald reference.
-- `telangana_2025-11_5km.tif` — 256² Sentinel-2 L2A crop, November 2025, 5.1 km across.
+- `telangana_2025-11_5km.tif` — 256² Sentinel-2 L2A crop, November 2025, 2.6 km across.
   **This area overlaps the KUDALIAR training site**, so it is a demonstration scene, not a
   held-out benchmark.
 

@@ -262,7 +262,7 @@ with left:
         if samples:
             pick = st.selectbox("Sample", samples, format_func=lambda p: p.name)
             if "telangana" in pick.name.lower():
-                st.caption("Telangana sample \u2014 Sentinel-2 L2A, Nov 2025, 5.1 km across. "
+                st.caption("Telangana sample \u2014 Sentinel-2 L2A, Nov 2025, 2.6 km across. "
                            "This area overlaps the KUDALIAR training site, so treat it as a "
                            "demonstration scene, not a held-out benchmark.")
             with rasterio.open(pick) as s:
