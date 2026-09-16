@@ -21,16 +21,16 @@ fine-scale detail, *and* be honest that reconstructed detail is inferred rather 
 observed. This pipeline never ships a super-resolved pixel without the map that says how
 much to trust it.
 
-## Three screens
+## What it does
 
-| page | what it does |
-|------|--------------|
-| **Sentinel-2 Super-Resolution** | Upload your own scene — four band files straight from a SAFE product, or one 4-band GeoTIFF — and get a 2.5 m product back with a confidence band and a download. |
-| **Product browser** | Precomputed products with imagery, trust, NDVI and benchmark tabs. Cannot fail live. |
-| **Test bench** | Every branch, every knob, Wald protocol metrics, export. |
+Upload a 10 m Sentinel-2 scene — four band files straight from a SAFE product, or one
+4-band GeoTIFF — and get a 2.5 m product back: four super-resolved bands plus a sigma
+band and a per-pixel confidence band, downloadable as a Cloud-Optimised GeoTIFF with the
+input's CRS and footprint preserved.
 
 Input band order is **B04, B03, B02, B08**. Integer L2A DN is detected and scaled
-automatically.
+automatically. Scenes larger than 640 px get a window picker so inference stays
+interactive.
 
 ## Branches running here
 
@@ -59,9 +59,8 @@ Measured on the bundled Telangana sample. Lower is better.
 
 ## Bundled samples
 
-- `test_scene_10m.tif` — 128², the SEN2SR example patch, with `test_ref_2p5m.tif` as its
-  2.5 m Wald reference.
-- `telangana_2025-11_5km.tif` — 256² Sentinel-2 L2A crop, November 2025, 2.6 km across.
+- `test_scene_10m.tif` — 128², the SEN2SR example patch. Fastest way to see the pipeline run.
+- `telangana_2025-11_2p6km.tif` — 256² Sentinel-2 L2A crop, November 2025, 2.6 km across.
   **This area overlaps the KUDALIAR training site**, so it is a demonstration scene, not a
   held-out benchmark.
 
