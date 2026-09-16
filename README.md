@@ -7,7 +7,7 @@ sdk: docker
 app_port: 7860
 pinned: false
 license: mit
-short_description: Sentinel-2 10 m to 2.5 m super-resolution with per-pixel trust
+short_description: Sentinel-2 10 m to 2.5 m super-resolution with trust map
 ---
 
 # Sutram SRM — Deep Learning Super-Resolution Mapping
