@@ -1,7 +1,9 @@
-# CPU-only torch: the CUDA wheel is ~2.5 GB and a free Space has no GPU.
+# CPU-only torch: the default Linux wheel on PyPI is the CUDA build (~2.5 GB
+# installed), which exceeds the build limits of every free host. The +cpu local
+# version forces the ~200 MB CPU wheel from PyTorch's own index.
 --extra-index-url https://download.pytorch.org/whl/cpu
 
-torch==2.13.0
+torch==2.13.0+cpu
 numpy==2.5.2
 scipy==1.16.2
 rasterio==1.5.1
