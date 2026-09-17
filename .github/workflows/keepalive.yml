@@ -1,0 +1,27 @@
+# cpu-basic Spaces sleep after 48 hours of inactivity, and any visit resets
+# that timer, so a ping every 12 hours keeps the Space warm and a judge never
+# lands on a cold start.
+#
+# Two caveats worth knowing: GitHub disables scheduled workflows in a repo with
+# no commits for 60 days, and free-runner cron is best-effort rather than
+# punctual. Neither matters against a 48 hour window, but this is "usually warm",
+# not a guarantee. Upgraded Space hardware never sleeps by default; delete this
+# file if you move to it.
+name: Keep the Space awake
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping the Space
+        run: |
+          url="https://drakula2115-sutram-srm.hf.space"
+          code=$(curl -sS -o /dev/null -w "%{http_code}" --max-time 180 -L "$url")
+          echo "GET $url -> HTTP $code"
+          # A sleeping Space returns 200 once it has woken; anything else is a real failure.
+          [ "$code" = "200" ] || exit 1
