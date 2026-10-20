@@ -21,6 +21,8 @@ fine-scale detail, *and* be honest that reconstructed detail is inferred rather 
 observed. This pipeline never ships a super-resolved pixel without the map that says how
 much to trust it.
 
+**Live app: <https://drakula2115-sutram-srm.hf.space>** — runs on CPU, no sign-in.
+
 ## What it does
 
 Upload a 10 m Sentinel-2 scene — four band files straight from a SAFE product, or one
